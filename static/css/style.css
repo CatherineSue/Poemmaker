@@ -1,0 +1,291 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  /* font-properties */
+  font-family: Libian;
+  src: url('../fonts/Libian.ttc');
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  font-family: "Libian", Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  background: url('../images/background.jpg') no-repeat right top fixed;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(92, 13, 12);
+  transition: color 0.2s linear,
+              background 0.2s linear;
+}
+
+/* ///////////////////////////////////////////////////////////////////// 
+//  01 - Container
+/////////////////////////////////////////////////////////////////////*/
+
+div.container {
+  position: relative;
+  height: auto !important;
+  min-height: 100%;
+}
+
+div.main{
+	padding-bottom: 100px;
+	height: 730px;
+}
+
+/* ///////////////////////////////////////////////////////////////////// 
+//  02 - Header
+/////////////////////////////////////////////////////////////////////*/
+
+div.header-left{
+	width: 10%;
+	height: 40px;
+	float: left;
+}
+
+div.header{
+	width: 90%;
+	margin: 25px 20px 20px;
+	padding: 20px 20px 10px 20px;
+  font-size: x-large;
+  display: block;
+}
+
+div.logo-left{
+	width: 55%;
+	height: 20px;
+	float: left;
+}
+
+div.header-logo{
+	width: 10%;
+	float: left;
+	width: 70px;
+	height: 70px;
+}
+
+div.header-h1 h1{
+	color: rgb(92, 13, 12);
+	text-align: left;
+	text-shadow: 0px 0px 5px #CCCCCC,
+							 0 0 10px #CCCCCC,
+							 0 0 15px #CCCCCC, 
+							 0 0 20px #CCCCCC, 
+							 0 0 25px #CCCCCC, 
+							 0 0 30px #5C0D0C, 
+							 0 0 50px #5C0D0C, 
+							 0 0 80px #E8041B, 
+							 0 0 100px #E8041B, 
+							 0 0 150px #E8041B;
+}
+
+div.nav-left{
+	width: 10%;
+	height: 40px;
+	margin-bottom: 20px;
+	float: left;
+}
+
+div.nav{
+	width: 80%;
+	height: 40px;
+	margin-bottom: 20px;
+	float: left;
+	display: inline-block;
+	background: rgba(240, 225, 230, 0.3);
+	border-radius: 15px;
+	overflow: hidden;
+}
+
+div.nav::before{
+	content: '';
+  position: relative;
+  filter: blur(20px);
+  margin: -30px;
+}
+
+div.nav:hover{
+	background: rgba(240, 225, 230, 0.6);
+}
+
+div.nav-right{
+	width: 10%;
+	height: 40px;
+	margin-bottom: 20px;
+	float: right;
+}
+
+a.nav-item {
+  position: relative;
+  float: left;
+  height: 40px;
+  width: 25%;
+  text-align: center;
+  color: rgb(92, 13, 12);
+  font-size: 20px;
+  margin: 5px 0px 5px 0px; 
+}
+
+a.nav-item:hover {
+	color: rgb(255, 255, 255);
+	transition: 0.5s background linear;
+	text-shadow: 0 0 1.5px rgb(92, 13, 12), 
+								0 0 3.0px rgb(92, 13, 12), 
+								0 0 5.5px rgb(92, 13, 12), 
+								0 0 8.0px rgb(92, 13, 12);
+}
+
+/* ///////////////////////////////////////////////////////////////////// 
+//  03 - Left Panel
+/////////////////////////////////////////////////////////////////////*/
+
+div.left{
+	width: 10%;
+	height: 40px;
+    margin-left: 40px;
+	float: left;
+}
+
+div.left-panel{
+	width: 35%;
+	float: left;
+	display: inline-block;
+	margin: 5px 20px 0 0px;
+	background: url('../images/bg-l.png') no-repeat;
+}
+
+div#result{
+	margin: 100px 3px 0 120px;
+	font-size: 22px;
+	writing-mode: vertical-rl;
+    -webkit-writing-mode: vertical-rl;
+}
+
+div#return{
+    width: 85%;
+    float: right;
+    padding-left: 0px;
+}
+
+/* ///////////////////////////////////////////////////////////////////// 
+//  04 - Right Panel
+/////////////////////////////////////////////////////////////////////*/
+
+div.right-panel{
+	width: 45%;
+	float: right;
+	display: inline-block;
+	margin: 0 40px 0 3px;
+	background: url('../images/bg-r.png') no-repeat;
+}
+
+legend{
+	text-align: left;
+	display: block;
+	width: 75%;
+	padding: 0;
+	margin-top: 20px;
+	margin-bottom: 15px;
+	font-size: 19px;
+	line-height: inherit;
+	color: rgb(92, 13, 12);
+	border: 0;
+	border-bottom: 3px solid rgba(92, 13, 12, 0.53);
+}
+
+
+div.right-panel .input{
+	margin: 0 0 5px 10px;
+}
+
+div.right-panel input{
+	margin-left: 5px;
+}
+
+input[type="text"]:focus{
+	transition: border linear .2s, box-shadow linear .5s;
+	-moz-transition: border linear .2s, -moz-box-shadow linear .5s;
+	-webkit-transition: border linear .2s, -webkit-box-shadow linear .5s;
+	outline: none;
+	border-color: rgba(163, 190, 218, .85);
+	box-shadow: 0 0 8px rgba(93, 149, 242, .105);
+	-moz-box-shadow: 0 0 8px rgba(93, 149, 242, .5);
+	-webkit-box-shadow: 0 0 8px rgba(93, 149, 242, 3);
+}
+
+button.poem_type{
+	display: inline-block;
+	width: 60px;
+	height: 20px;
+	margin-left: 10px;
+	background: url('../images/bd.jpg');
+	border: 0px;
+	border-radius: 4px;
+}
+
+/* ///////////////////////////////////////////////////////////////////// 
+//  05 - Footer
+/////////////////////////////////////////////////////////////////////*/
+
+.footer {
+	font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
+	font-style: normal;
+	width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 80px;
+  position: absolute;
+}
+
+.footer .content {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer .content .footer-text {
+  padding-top: 30px;
+  font-size: 12px;
+  line-height: 24px;
+  color: rgb(92, 13, 12);
+}
+
+.footer .content .footer-text a {
+  color: rgb(92, 13, 12);
+}
+
+.footer .content .footer-text a:hover {
+  color: #fff;
+}
+
+/* ///////////////////////////////////////////////////////////////////// 
+//  06 - Other
+/////////////////////////////////////////////////////////////////////*/
+
+.hidden {
+  display: none;
+}
+
+/* WebKit browsers */
+::-webkit-input-placeholder {
+	color: #777;
+	opacity: 0.8;
+}
+
+/* Mozilla Firefox 19+ */
+::-moz-placeholder {
+	color: #777;
+	opacity: 0.8;
+}
+
+/* Internet Explorer 10+ */
+:-ms-input-placeholder {
+	color: #777;
+	opacity: 0.8;
+}

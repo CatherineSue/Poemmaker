@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	
+  <head>
+    <meta charset="utf-8">
+
+    <title>PoemMaker-古诗词生成</title>
+
+    <link rel="stylesheet" href="../static/css/style.css">
+  </head>
+  
+  
+  <body>
+<!-- 	  Container -->
+    <div class="container">
+	    
+	    <div class="main">    
+<!-- 	    Header -->
+		    <div class="header-left"></div>
+		    <div class="header">
+			    <header class="title">
+				    <div class="logo-left"></div>
+				    <div class="header-logo">
+					    <a href="http://cslt.riit.tsinghua.edu.cn/"><img src="../static/images/logo.png"/></a>
+					  </div>
+				    <div class="header-h1"><a href="#"><h1>古诗词生成</h1></a></div>
+			    </header>
+		    </div>
+	    
+<!-- 	    Navgation bar -->
+		    <div class="nav-left"></div>
+		    <div class="nav">
+			    <a href="#"class="nav-item"><img src="../static/images/icon-l.png"/> 首页 <img src="../static/images/icon-r.png"/></a>
+			    <a href="#input" class="nav-item"><img src="../static/images/icon-l.png"/> 输入参数 <img src="../static/images/icon-r.png"/></a>
+			    <a href="#" class="nav-item"><img src="../static/images/icon-l.png"/> 生成诗词 <img src="../static/images/icon-r.png"/></a>
+			    <a href="http://cslt.riit.tsinghua.edu.cn/" class="nav-item"><img src="../static/images/icon-l.png"/> 关于我们 <img src="../static/images/icon-r.png"/></a>
+		    </div>
+		    <div class="nav-right"></div>
+
+<!-- 			Right panel -->
+		    <div class="right-panel" id="input">
+			    <div class="right-top">
+				    <legend>输入生成的诗词的主题和藏头</legend>
+				    <div class="input" name="t"> 主题 <input type="text" name="topic" id="topic" placeholder="默认: 月下独酌"> </div>
+				    <div class="input" name="h"> 藏头 <input type="text" name="head" id="head" placeholder="默认: 金樽对月空自赏"> </div>
+			    </div>
+			    <div class="right-bottom">
+				    <legend>选择你要生成的诗词类型</legend>
+				    <button class="poem_type" id="poem7" onclick="change('#poem7')">
+				    	七言绝句
+				    </button>
+				    <button class="poem_type" id="poem5" onclick="change('#poem5')">
+				    	五言绝句
+				    </button>
+				    <button class="poem_type" id="ymr" onclick="change('#ymr')">
+				    	虞美人
+				    </button>
+				    <button class="poem_type" id="dlh" onclick="change('#dlh')">
+				    	蝶恋花
+				    </button>
+			    </div>
+			    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+			   </div>
+
+<!-- 	    Left panel -->
+		    <div class="left"></div>
+		    <div class="left-panel" id="left-panel">
+			    <div class="placehold"></div>
+			    <div id="result">
+<!-- 			    Here is the output-Song div -->
+			    </div>
+				</div>
+
+            <!--Return button-->
+            <div class="return" id="return" hidden="true">
+                <button class="poem_type" onclick="returnInput()">
+                    返回
+                </button>
+            </div>
+			   
+	    </div>
+	    
+<!--     Footer -->
+	    <footer class="footer">
+	        <div class="content">
+	          <div class="footer-text">
+	            <p>© 2016 PoemMaker. All rights reserved.</p>
+	            <p><a href="http://cslt.riit.tsinghua.edu.cn/">关于我们</a> | <a href="#">帮助</a> | <a href="http://cslt.riit.tsinghua.edu.cn/">加入我们</a></p>
+	          </div>
+	        </div>
+	    </footer>
+
+    </div>
+   
+<!-- 		Script -->
+    <script src="../static/js/jquery-2.1.4.js"></script>
+    <script src="../static/js/jquery-2.1.4.min.js"></script>
+    <script src="../static/js/type.js"></script>
+		<script type="text/javascript">
+            function returnInput(){
+                $("#input").animate({
+                    opacity: 1,
+                    height: "toggle"
+                }, 1500, function() {
+                    // Animation complete.
+                });
+                $("#result").html("");
+                $("#return").attr("hidden","hidden");
+                $("#left-panel").css({'margin-left':'0'});
+            };
+	        function change(type){
+	            $(type).addClass("chosen");
+	            var types = ['#poem7','#poem5','#ymr','#dlh']
+	            for (var i = 0; i < 4; i++){
+	                if (types[i] != type) {
+	                    $(types[i]).attr("disabled",'disabled');
+	                }
+	            }
+
+	            var topic = $("#topic").val();
+	            var head = $("#head").val();
+	            var type = $("button.chosen").attr('id');
+
+                $("#result").html("");
+	            $("#result").typetype("已读入参数...\n\n\n\n")
+                        .delay(500)
+                        .typetype("正在生成诗词");
+                $("#left-panel").delay(4000)
+                        .fadeOut(3000);
+	
+	            $.post("/test",{message1:topic, message2:head, message3:type}, function(data,status){
+	                if (status == "success") {
+	                    var lines = data.split('/');
+	                    var res = "";
+	                    var resVec = "";
+	                    if (lines[0] == "UNK"){
+	                        var lines = lines[1].split(':')[1].split('UNK');
+	                    }
+                        if(lines.length > 12) {
+                            $("#input").animate({
+                                opacity: 1,
+                                height: "toggle"
+                            }, 200, function() {
+                                $("#return").removeAttr("hidden");
+                                var removeIndex = lines.length - 12;
+                                var strpx = removeIndex*(-20)+300+'px'
+                                $("#left-panel").css({'margin-left':strpx});
+                            });
+                        }
+	                    for (var i = 0; i < lines.length; i++) {
+                            res += lines[i] + "<br>";
+                            resVec += lines[i] + "\n\n";
+                        }
+                        $("#result").html(res);
+                        $("#left-panel").delay(200)
+                                .fadeIn(500);
+	                    var types = ['#poem7','#poem5','#ymr','#dlh']
+	                    for (var i = 0; i < 4; i++){
+	                        $(types[i]).removeAttr("disabled");
+	                        $(types[i]).removeClass("chosen");
+	                    }
+	                } else alert("Ajax 失败");
+	            });
+	        };
+	        
+	  </script>
+  </body>
+  
+  
+</html>
