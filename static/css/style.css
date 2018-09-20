@@ -4,9 +4,15 @@
 }
 
 @font-face {
-  /* font-properties */
   font-family: Libian;
-  src: url('../fonts/Libian.ttc');
+  src: url('../fonts/libian.eot');
+  src: url('../fonts/libian.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/libian.woff2') format('woff2'),
+       url('../fonts/libian.woff') format('woff'),
+       url('../fonts/libian.ttf') format('truetype'),
+       url('../fonts/libian.svg#libian_scregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 body {
@@ -73,11 +79,11 @@ div.header-logo{
 div.header-h1 h1{
 	color: rgb(92, 13, 12);
 	text-align: left;
-	text-shadow: 0px 0px 5px #CCCCCC,
-							 0 0 10px #CCCCCC,
-							 0 0 15px #CCCCCC, 
-							 0 0 20px #CCCCCC, 
-							 0 0 25px #CCCCCC, 
+	text-shadow: 0px 0px 5px #FFFFFF,
+							 0 0 10px #FFFFFF,
+							 0 0 15px #FFFFFF, 
+							 0 0 20px #FFFFFF, 
+							 0 0 25px #FFFFFF, 
 							 0 0 30px #5C0D0C, 
 							 0 0 50px #5C0D0C, 
 							 0 0 80px #E8041B, 
@@ -148,7 +154,7 @@ a.nav-item:hover {
 div.left{
 	width: 10%;
 	height: 40px;
-    margin-left: 40px;
+  margin-left: 40px;
 	float: left;
 }
 
@@ -164,7 +170,10 @@ div#result{
 	margin: 100px 3px 0 120px;
 	font-size: 22px;
 	writing-mode: vertical-rl;
-    -webkit-writing-mode: vertical-rl;
+  -webkit-writing-mode: vertical-rl;
+  -moz-writing-mode: vertical-rl;
+  -o-writing-mode: vertical-rl;
+  -ms-writing-mode: vertical-rl;
 }
 
 div#return{

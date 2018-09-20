@@ -1,0 +1,7 @@
+input: 月/下/独/酌/
+
+predict: 不 尽 日 望 UNK 不 来 何 处 无 UNK 不 来 何 处 无 情 来 UNK 不 来 何 处 无 情 来 UNK 不 来 何 处 无 情 来 UNK 不 来 何 处 UNK 不 似 何 处 回 UNK 不 似 何 处 回 路 日 UNK 一 风 雨 相 思 何 处     
+origin: 月/下/独/酌/
+
+
+error_rate: 1.0

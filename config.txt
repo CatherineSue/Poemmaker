@@ -1,0 +1,24 @@
+poem_type = poem7 // 
+predict_only = 1   //  if this is set to 0, the program will start a new training, note this will delete the old model parameters
+lv_7 = 0,p,0,z,0,p,0/0,z,0,p,0,z,p/0,z,0,p,0,z,0/0,p,0,z,0,p,p/0,p,0,z,0,p,0/0,z,0,p,0,z,p // p is ping, z is ze, 0 is whatever, this is for poem7
+lv_5 = 0,z,0,p,0/0,p,0,z,p/0,p,0,z,0/0,z,0,p,p/0,z,0,p,0/0,p,0,z,p // p is ping, z is ze, 0 is whatever, this is for poem5
+input_sen = 月/下/独/酌/
+head = 金/樽/对/月/空/自/赏/
+not_first = 0 // predict three sentences(1) or four(0)
+
+
+
+# the line start with a “#” will not be read
+
+# normally we do not change lines below:
+wordsFilePath = word2vec_song.txt // where you should store or load the wordVec
+inputFilePath = song.txt  // the file for training, should be split with tab between sentences and blank between words
+targetFilePath = song.txt //  the file for training, should have the same content like what is in “inputFilePath”
+save_to = model_song_saved.npz  // where to save the model, if you want to predict, change the name manually, by the way the model will be saved many times
+model_path = model_song.npz  // where to load the model
+test_in_file = song_sample.txt   //  the file for predict, should be split with tab between sentences and blank between words
+test_out_file = song_sample.txt    //   the file for predict answers
+predict_file = out_song.txt  //  the file where you get the output
+end_break = 0  //   if predicted the “END” sign, whether to stop predict or not
+googleVec = googleVec.txt   //  if you used the google word2Vec vex file to init the wordVec 
+

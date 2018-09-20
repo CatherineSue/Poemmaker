@@ -1,0 +1,7 @@
+input: 月/下/独/酌/
+
+predict: 落 江 南 枝 上 UNK 一 夜 深 处 冷 烟 波 UNK 卧 看 花 前 香 在 UNK 落 花 风 UNK 一 江 南 雪 芳 草 月 UNK 一 觉 华 胥 梦 UNK 一 夜 深 处 冷 烟 波 UNK 一 夜 一 双 飞 燕 UNK 水 来 人     
+origin: 月/下/独/酌/
+
+
+error_rate: 0.0
